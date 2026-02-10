@@ -49,8 +49,8 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx,json,jsonc,md,mdx,yml,yaml}": [
-      "pnpm lint --",
-      "pnpm format --"
+      "pnpm lint",
+      "pnpm format"
     ]
   },
   "packageManager": "pnpm@^10.0.0"
