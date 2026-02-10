@@ -6,7 +6,7 @@ if git status --short | grep --quiet '^MM'; then
   exit 1;
 fi
 
-# https://biomejs.dev/recipes/git-hooks/#shell-script
-npx @biomejs/biome check --write --staged --files-ignore-unknown=true --no-errors-on-unmatched
+# https://github.com/lint-staged/lint-staged
+pnpm lint-staged
 
 git update-index --again

@@ -5,11 +5,12 @@ This template provides an opinionated setup for a single package TypeScript proj
 ## 🚀 Features
 
 - [PNPM](https://pnpm.io/) for efficient package management
-- [Biome](https://biomejs.dev/) for linting and formatting
+- [Oxlint](https://oxc.rs/docs/guide/linter/cli) and [Oxfmt](https://oxc.rs/docs/guide/formatter/cli) for linting and formatting
 - [Vitest](https://vitest.dev/) for fast, modern testing
 - [tsdown](https://github.com/rolldown/tsdown) for TypeScript building and bundling
 - [tsx](https://tsx.is/) for running TypeScript files
 - [Husky](https://github.com/typicode/husky) for Git hooks
+- [lint-staged](https://github.com/lint-staged/lint-staged) for running linting on staged files
 - [GitHub Actions](.github/workflows/ci.yml) for continuous integration
 - [VSCode](.vscode/) debug configuration and editor settings
 - [@total-typescript/tsconfig](https://github.com/total-typescript/tsconfig) for TypeScript configuration
@@ -27,23 +28,23 @@ Create a new repository [using this template](https://docs.github.com/en/reposit
 
 Replace all occurences of the following placeholders with the correct values:
 
-| Placeholder | File | Description |
-| --- | --- | --- |
-| `<PACKAGE>` | `package.json` | Your package name |
+| Placeholder     | File           | Description              |
+| --------------- | -------------- | ------------------------ |
+| `<PACKAGE>`     | `package.json` | Your package name        |
 | `<DESCRIPTION>` | `package.json` | Your package description |
-| `<USERNAME>` | `package.json` | Your GitHub username |
-| `<REPO>` | `package.json` | Your repository name |
-| `<AUTHOR>` | `package.json` | Your name |
-| `<LICENSE>` | `package.json` | Your license |
+| `<USERNAME>`    | `package.json` | Your GitHub username     |
+| `<REPO>`        | `package.json` | Your repository name     |
+| `<AUTHOR>`      | `package.json` | Your name                |
+| `<LICENSE>`     | `package.json` | Your license             |
 
 ### 3. Apply ToDos
 
 Find all occurrences of `TODO` and apply them:
 
-| TODO | File | Description |
-| --- | --- | --- |
+| TODO            | File                       | Description                                  |
+| --------------- | -------------------------- | -------------------------------------------- |
 | `TODO: PREVIEW` | `.github/workflows/ci.yml` | Create [preview releases](#preview-releases) |
-| `TODO: PUBLISH` | `.github/workflows/ci.yml` | [Publish to NPM](#publish-npm) |
+| `TODO: PUBLISH` | `.github/workflows/ci.yml` | [Publish to NPM](#publish-npm)               |
 
 ### 4. Install, Build, Test
 
@@ -63,9 +64,9 @@ Happy coding! 🎉
 
 The [`package.json`](package.json) is configured as ESM (`"type": "module"`), but supports dual publishing with both ESM and CJS module formats.
 
-### Biome
+### Oxlint & Oxfmt
 
-[`biome.jsonc`](biome.jsonc) contains the default [Biome configuration](https://biomejs.dev/reference/configuration/) with minimal formatting adjustments. It uses the formatter settings from the [`.editorconfig`](.editorconfig) file.
+[`./.oxlintrc.json`](.oxlintrc.json) and [`./.oxfmtrc.json`](.oxfmtrc.json) contain the default Oxlint and Oxfmt configurations. They complement the formatter settings from the [`.editorconfig`](.editorconfig) file.
 
 ### Vitest
 
@@ -78,7 +79,7 @@ An empty Vitest config is provided in [`vitest.config.ts`](vitest.config.ts).
 
 ### Git Hooks
 
-[Husky](https://github.com/typicode/husky) runs the [.husky/pre-commit](.husky/pre-commit) hook to lint staged files.
+[Husky](https://github.com/typicode/husky) runs the [.husky/pre-commit](.husky/pre-commit) hook to lint and format staged files with lint-staged.
 
 ### Continuous Integration
 
@@ -89,6 +90,7 @@ An empty Vitest config is provided in [`vitest.config.ts`](vitest.config.ts).
 #### Debugging
 
 [`.vscode/launch.json`](.vscode/launch.json) provides VSCode launch configurations:
+
 - `Debug (tsx)`: Run and debug TypeScript files
 - `Test (vitest)`: Debug tests
 
@@ -96,7 +98,7 @@ It uses the [JavaScript Debug Terminal](https://code.visualstudio.com/docs/nodej
 
 #### Editor Settings
 
-[`.vscode/settings.json`](.vscode/settings.json) configures Biome as the formatter and enables format-on-save.
+[`.vscode/settings.json`](.vscode/settings.json) configures Oxfmt as the formatter and enables format-on-save.
 
 ### EditorConfig
 
@@ -108,7 +110,7 @@ It uses the [JavaScript Debug Terminal](https://code.visualstudio.com/docs/nodej
 - Trims trailing whitespace (except in Markdown files)
 - Inserts a final newline in files
 
-This configuration complements Biome and helps maintain a consistent code style throughout the project.
+This configuration complements Oxfmt and helps maintain a consistent code style throughout the project.
 
 ### Types Validation
 
@@ -121,6 +123,7 @@ The project includes `publint` to validate your `package.json` file. It is integ
 ## Optional
 
 ### <a name="publish-npm"></a> Publish to NPM
+
 [JS-DevTools/npm-publish](https://github.com/JS-DevTools/npm-publish) is a GitHub Action to publish packages to npm automatically by updating the version number.
 
 To enable this, apply the `TODO: PUBLISH`.
