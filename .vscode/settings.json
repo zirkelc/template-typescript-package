@@ -3,21 +3,17 @@
     "turbo.json": "jsonc"
   },
   // FORMATTER
-  // https://biomejs.dev/reference/vscode/#format-on-save
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
-  },
   "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc"
   },
   "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc"
   }
 }

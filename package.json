@@ -2,43 +2,56 @@
   "name": "<PACKAGE>",
   "version": "1.0.0",
   "description": "<DESCRIPTION>",
-  "packageManager": "pnpm@^10.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "type": "module",
+  "keywords": [],
+  "license": "<LICENSE>",
+  "author": "<AUTHOR>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<USERNAME>/<REPO>"
+  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsdown",
     "test": "vitest",
-    "lint": "biome check . --write",
+    "lint": "oxlint --fix",
+    "lint:ci": "oxlint",
+    "format": "oxfmt --write",
+    "format:ci": "oxfmt --check",
     "prepare": "husky"
-  },
-  "keywords": [],
-  "author": "<AUTHOR>",
-  "license": "<LICENSE>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/<USERNAME>/<REPO>"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
-    "@biomejs/biome": "^2.3.2",
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/node": "^24.9.2",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
     "pkg-pr-new": "^0.0.60",
     "publint": "^0.3.15",
     "tsdown": "^0.15.12",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "vitest": "^4.0.6"
-  }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,json,jsonc,md,mdx,yml,yaml}": [
+      "pnpm lint --",
+      "pnpm format --"
+    ]
+  },
+  "packageManager": "pnpm@^10.0.0"
 }
