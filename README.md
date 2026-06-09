@@ -33,7 +33,7 @@ Replace all occurrences of the following placeholders in [`package.json`](packag
 | `PACKAGE`     | `name`           | Your npm package name                   |
 | `DESCRIPTION` | `description`    | Your package description                |
 | `LICENSE`     | `license`        | Your license (`MIT`, `Apache-2.0`, ...) |
-| `AUTHOR`     | `author`         | Your name                               |
+| `AUTHOR`      | `author`         | Your name                               |
 | `USERNAME`    | `repository.url` | Your GitHub username                    |
 | `REPO`        | `repository.url` | Your GitHub repository name             |
 
@@ -41,9 +41,9 @@ Replace all occurrences of the following placeholders in [`package.json`](packag
 
 Find all occurrences of `TODO` and apply them:
 
-| TODO            | File                                                       | Description                                                  |
-| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
-| `TODO: PREVIEW` | `.github/workflows/ci.yml`                                 | Create [preview releases](#preview-releases)                 |
+| TODO            | File                                                        | Description                                                       |
+| --------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |
+| `TODO: PREVIEW` | `.github/workflows/ci.yml`                                  | Create [preview releases](#preview-releases)                      |
 | `TODO: RELEASE` | `.github/workflows/ci.yml`, `.github/workflows/release.yml` | [Release with Release Please](#release-please) and publish to NPM |
 
 ### 4. Install, Build, Test
